@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>资格认证</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #F7F7F7;
+			}
+
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				/* padding: 0 18px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+			.rz_li{
+				width: 100%;
+				height: 50px;
+				background: rgba(255, 255, 255, 1);
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				align-items: center;
+			}
+			.my_box3 input{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 45px;
+				font-size: 15px;
+				color: #333;
+				text-align: right;
+			}
+			.logout_btn{
+				width:80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+				margin: 200px auto 0;
+			}
+			.img_box{
+				width: 100%;
+				background: #fff;
+				padding: 0 15px 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			.img_li{
+				position: relative;
+			}
+			.img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+
+				<form class="my_box3">
+					<div class="disflex rz_li">
+						<div class="flex0 rz_name">名称</div>
+						<input class="flex1" type="text" name="name" placeholder="请输入">
+					</div>
+					<div class="disflex rz_li">
+						<div class="flex0 rz_name">营业执照</div>
+					</div>
+					<div class="img_box disflex">
+						<div class="img_li" v-for="(item,index) in imgs">
+							<img :src="item" alt="">
+						</div>
+						
+						<div class="img_li">
+							<img src="image/images/upimg_03.jpg" alt="">
+							<input data-type='sfzimg' type="file"  multiple onchange="upup(this,'img')" accept="image/*">
+						</div>
+						<input type="hidden" name='zz' :value="imgs.join('^')">
+					</div>
+					<button class="logout_btn disflex" type="submit">提交</button>
+				</form>
+
+
+
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					imgs:[],
+				},
+				created: function() {},
+			});
+			
+			function upup(e,type,id){
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();//获取文件后缀名
+				if(type=='img'){
+					//检查后缀名
+					if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+								layer.msg('文件格式必须为：png/jpg/jpeg');
+								return;  
+					}else{
+						//获取并记录图片的base64编码s
+						
+						console.log(e.files)
+							imgsj(e.files,0)
+						
+					}
+				}
+				
+			}	
+			function imgsj(imgs,num){
+				var reader = new FileReader();
+				reader.readAsDataURL(imgs[num]); // 读出 base64
+				console.log(imgs[num])
+				reader.onloadend = function () {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+						 var dataURL = reader.result;//base64
+						vm.imgs.push(dataURL)
+						if(num<imgs.length-1){
+							num++
+							imgsj(imgs,num)
+						}
+					 
+					 // upimg_img(e,0)
+				};
+			}
+			
+			function upimg_img(e,e_idx){
+				var formData = new FormData();
+				formData.append("file", e.files[e_idx])
+				$.ajax({
+					url:'',
+					data:formData,
+					type:"post",
+					dataType:'json',
+					processData:false,
+					contentType:false,
+					beforeSend:function (){
+						layer.msg('正在上传中...', {
+							icon: 16
+							,shade: 0.01
+							,time:false
+						});
+					},
+					success: function (res){
+						if(res.code==200){
+							layer.closeAll()
+							
+							vm.imgs.push(res.data)
+							var imgarr=vm.imgs.split(',')
+							if(imgarr>=10){
+								layer.msg("最多只能上传9张图片")
+								return
+							}
+							if(e_idx<e.files.length){
+								upimg_img(e,e_idx)
+							}
+							
+						}else{
+							layer.msg('上传失败')
+						}
+					
+					},
+					error: function (err){
+						layer.closeAll()
+						layer.msg('上传失败')
+						console.log(err)
+					}
+				}) 
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>投保记录</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+			
+
+			.my_msg_box {
+
+				height: 91px;
+				position: absolute;
+				top: -67px;
+				left: 15px;
+				right: 15px;
+				background: rgba(255, 255, 255, 1);
+				box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.02);
+				border-radius: 7px;
+				padding: 20px 25px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				align-items: center;
+			}
+
+			
+			.my_box3 {
+				width: 100%;
+				background: rgba(255, 255, 255, 1);
+				padding: 0 18px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+
+			.my_li {
+				margin-top: 10px;
+				width: 100%;
+				align-items: center;
+				height: 48px;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:5px;
+			}
+
+			.iconnext {
+				color: #999;
+				font-size: 12px;
+			}
+
+			.my_li_l {
+				height: 47px;
+				/* border-bottom: 1px solid #F4F4F4; */
+				align-items: center;
+				
+			}
+			.my_li_l i{
+				margin-right: 10px;
+			}
+			.my_li_l div{
+				color: #646464;
+				font-size: 14px;
+				font-weight: 500;
+			}
+			.my_li_v{
+				padding-right: 10px;
+				font-size: 16px;
+				color: #999;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				
+				<div class="my_box3">
+					<a class="disflex my_li" href="my_tblist1.html">
+						<div class="flex_1 my_li_l disflex">
+							<div class="flex_1">张起灵</div>
+						</div>
+						<i class=" iconfont iconnext"></i>
+					</a>
+					<a class="disflex my_li" href="my_tblist1.html">
+						<div class="flex_1 my_li_l disflex">
+							<div class="flex_1">张起灵</div>
+						</div>
+						<i class=" iconfont iconnext"></i>
+					</a>
+					<a class="disflex my_li" href="my_tblist1.html">
+						<div class="flex_1 my_li_l disflex">
+							<div class="flex_1">张起灵</div>
+						</div>
+						<i class=" iconfont iconnext"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				$('.flex-con').scroll(
+
+					function() {
+						var scrollTop = $(this).scrollTop();
+						var scrollHeight = $('.my_box3').height();
+						var windowHeight = $(this).height();
+						console.log(scrollTop + windowHeight - scrollHeight)
+						if (scrollTop + windowHeight>= scrollHeight) {
+							// 此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
+							console.log("弹弹弹");
+							if (loading == true) {
+								return
+							}
+							layer.msg('加载中')
+							getdatalist()
+						}
+					});
+				getdatalist()
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+
+
+			
+
+			function getdatalist(){
+				// 加载
+				
+			}
+
+
+		
+		</script>
+	</body>
+
+</html>

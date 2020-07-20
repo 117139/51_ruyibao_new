@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>资格认证</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/Area.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				/* padding: 0 18px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+			.rz_li{
+				width: 100%;
+				
+				background: rgba(255, 255, 255, 1);
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.rz_li1{
+				width: 100%;
+				height: 50px;
+				
+				align-items: center;
+			}
+			.rz_li1+.rz_li1{
+				border-top: 1px solid #F3F4F6;
+			}
+			.my_box3 input{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 45px;
+				font-size: 15px;
+				color: #333;
+				text-align: right;
+			}
+			.logout_btn{
+				width:44%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+			}
+			.img_box{
+				width: 100%;
+				background: #fff;
+				padding: 0 15px 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			
+			.hx_b{
+				width: 100%;
+				font-size: 14px;
+				color: #666;
+				align-items: center;
+				height:35px;
+				padding: 0 15px;
+				background:rgba(243,244,246,1);
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.iconnext {
+				color: #999;
+				font-size: 12px;
+			}
+			.sr_tip{
+				width: 100%;
+				padding: 8px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius:2px;
+				font-size: 13px;
+				color: #C5C4C4;
+			}
+			.hx_1{
+				width: 100%;
+				height:9px;
+				background:rgba(243,244,246,1);
+				margin-top: 10px;
+			}
+			.upimg_box{
+				justify-content: space-between;
+			}
+			.img_li_box{
+				width: 48%;
+			}
+			.img_li{
+				position: relative;
+				width: 100%;
+				height:85px;
+				margin-bottom: 10px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			.up_tip{
+				font-size: 13px;
+				text-align: center;
+				color: #54AAFF;
+			}
+			.pz_tip{
+				width: 100%;
+				font-size: 11px;
+				color: #999;
+				margin-top: 20px;
+			}
+			.b_box{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height:62px;
+				background:rgba(243,244,246,1);
+				justify-content: space-around;
+				align-items: center;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.logout_btn1{
+				background: #CFCFCF;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+
+				<form class="my_box3" action="my_tb_sh.html">
+					<div class="hx_b disflex">基本信息</div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">名称</div>
+							<input class="flex1" type="text" name="name" placeholder="请输入">
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">手机号</div>
+							<input class="flex1" type="number" name="phone" placeholder="请输入">
+						</div>
+
+					</div>
+					<div class="hx_b disflex">身份信息</div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">身份证号</div>
+							<input class="flex1" type="text" name="cardId" placeholder="请输入">
+						</div>
+						<div class="rz_li1 disflex" @click="sel_area()">
+							<div class="flex0 rz_name">户口地址</div>
+							<input class="flex1" type="text" name="area" placeholder="请选择" :value="area" disabled="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<div class="rz_li1 disflex" @click="showPicker1 = true">
+							<div class="flex0 rz_name">户口性质</div>
+							<input class="flex1" type="text" name="hk" placeholder="请选择" :value="value1" disabled="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<div class="rz_li1 disflex" @click="showPicker2 = true">
+							<div class="flex0 rz_name">是否在职</div>
+							<input class="flex1" type="text" name="zz" placeholder="请选择" :value="value2" disabled="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+
+						<div class="rz_li1 disflex" @click="sel_area()">
+							<div class="flex0 rz_name">工作单位</div>
+							<input class="flex1" type="text" name="danwei" placeholder="请选择" >
+						</div>
+						<div class="sr_tip">工作单位仅用于数据存留，并不作为实际缴纳单位，请如实填写。</div>
+						<van-popup v-model="show_area" position="bottom" :overlay="true">
+							<van-area :area-list="areaList" :columns-num="3" @confirm="conf" @cancel="cancelfun" />
+						</van-popup>
+						
+						<van-popup v-model="showPicker1" position="bottom">
+							<van-picker show-toolbar :columns="columns1" @cancel="showPicker1 = false" @confirm="onConfirm1" />
+						</van-popup>
+						<van-popup v-model="showPicker2" position="bottom">
+							<van-picker show-toolbar :columns="columns2" @cancel="showPicker2 = false" @confirm="onConfirm2" />
+						</van-popup>
+					</div>
+
+				
+					<div class="hx_1"></div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">紧急联系人姓名</div>
+							<input class="flex1" type="text" name="jjname" placeholder="请输入">
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">紧急联系人手机号</div>
+							<input class="flex1" type="number" name="jjphone" placeholder="请输入">
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">添加附件</div>
+						</div>
+						<div class="upimg_box disflex">
+							<div class="img_li_box">
+								<div class="img_li" :style="{backgroundImage:sfz1?'url('+sfz1+')':'url(image/images/add_upimg_03.jpg)'}">
+									
+									<input data-type='sfzimg' type="file" multiple onchange="upup(this,'img',1)" accept="image/*">
+								</div>
+								<div class="up_tip">上传身份证正面</div>
+							</div>
+							<div class="img_li_box">
+								<div class="img_li" :style="{backgroundImage:sfz2?'url('+sfz2+')':'url(image/images/add_upimg_05.jpg)'}">
+									
+									<input data-type='sfzimg' type="file" multiple onchange="upup(this,'img',2)" accept="image/*">
+								</div>
+								<div class="up_tip">上传身份证反面</div>
+							</div>
+							
+							<input type="hidden" name='sfz1' :value="sfz1">
+							<input type="hidden" name='sfz2' :value="sfz2">
+						</div>
+						<div class="pz_tip">注：1.位于身份证正上方拍摄 2.身份证填充照片整个区域 3.按样图整体 排列，字体清晰。</div>
+					</div>
+					<div class="disflex b_box">
+						<div class="logout_btn logout_btn1 disflex" onclick="myback()">取消</div>
+						<button class="logout_btn disflex" type="submit">提交</button>
+					</div>
+				</form>
+
+
+
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					area: '',
+					areaarr: [],
+					useraddress: '',
+					show_area: false,
+					areaList: area_data,
+					imgs: [],
+					showPicker1: false, //城镇户口
+					columns1: [{
+							values: [
+								'城镇户口',
+								'农村户口'
+							],
+							defaultIndex: 0
+						}
+
+					],
+					value1: '城镇户口',
+					showPicker2: false, //在职
+					columns2: [{
+							values: [
+								'在职',
+								'离职'
+							],
+							defaultIndex: 0
+						}
+
+					],
+					value2: '在职',
+					sfz1:'',
+					sfz2:'',
+				},
+				created: function() {},
+				methods: {
+					sel_area: function() {
+						this.show_area = true;
+					},
+					cancelfun: function() {
+						this.show_area = false;
+					},
+					conf: function(res) {
+						// alert( JSON.stringify( res ) )
+						this.show_area = false;
+						var area1 = ''
+						this.areaarr = ['', '', '']
+						for (var i in res) {
+							area1 += res[i].name
+							if (res[i] && res[i] != null) {
+								this.areaarr[i] = res[i].name
+							}
+
+						}
+						this.area = area1
+					},
+
+					onConfirm1(value) { //户口
+						console.log(value)
+						this.value1 = value[0];
+						this.showPicker1 = false;
+					},
+					onConfirm2(value) { //在职
+						console.log(value)
+						this.value2 = value[0];
+						this.showPicker2 = false;
+					},
+				}
+			});
+			function myback(){
+				history.go(-1)
+			}
+			function upup(e, type,num) {
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(); //获取文件后缀名
+				if (type == 'img') {
+					//检查后缀名
+					if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+						layer.msg('文件格式必须为：png/jpg/jpeg');
+						return;
+					} else {
+						//获取并记录图片的base64编码s
+
+						console.log(e.files)
+						var reader = new FileReader();
+						reader.readAsDataURL(e.files[0]); // 读出 base64
+						console.log(e.files[0])
+						reader.onloadend = function() {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+							var dataURL = reader.result; //base64
+							if(num==1){
+								vm.sfz1=dataURL
+							}
+							if(num==2){
+								vm.sfz2=dataURL
+							}
+						
+							// upimg_img(e,0)
+						};
+
+					}
+				}
+
+			}
+
+			function imgsj(imgs, num) {
+				var reader = new FileReader();
+				reader.readAsDataURL(imgs[num]); // 读出 base64
+				console.log(imgs[num])
+				reader.onloadend = function() {
+					// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+					var dataURL = reader.result; //base64
+					vm.imgs.push(dataURL)
+					if (num < imgs.length - 1) {
+						num++
+						imgsj(imgs, num)
+					}
+
+					// upimg_img(e,0)
+				};
+			}
+
+			function upimg_img(e, e_idx) {
+				var formData = new FormData();
+				formData.append("file", e.files[e_idx])
+				$.ajax({
+					url: '',
+					data: formData,
+					type: "post",
+					dataType: 'json',
+					processData: false,
+					contentType: false,
+					beforeSend: function() {
+						layer.msg('正在上传中...', {
+							icon: 16,
+							shade: 0.01,
+							time: false
+						});
+					},
+					success: function(res) {
+						if (res.code == 200) {
+							layer.closeAll()
+
+							vm.imgs.push(res.data)
+							var imgarr = vm.imgs.split(',')
+							if (imgarr >= 10) {
+								layer.msg("最多只能上传9张图片")
+								return
+							}
+							if (e_idx < e.files.length) {
+								upimg_img(e, e_idx)
+							}
+
+						} else {
+							layer.msg('上传失败')
+						}
+
+					},
+					error: function(err) {
+						layer.closeAll()
+						layer.msg('上传失败')
+						console.log(err)
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

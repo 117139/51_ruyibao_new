@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>社保代缴</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+			.index_box {
+				width: 100%;
+				height: 208px;
+				position: relative;
+			}
+			.H_title{
+				font-size: 17px;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				z-index: 100;
+				color: #fff;
+			}
+			.swiper_box {
+				width: 100%;
+				height: 208px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 90;
+			}
+			.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+				bottom: 16px;
+			}
+			.swiper_box a {
+				display: block;
+				width: 100%;
+				height: 225px;
+				background-size: 100% 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+			
+			}
+			
+			.swiper-pagination-bullet-active {
+				background: #fff !important;
+			}
+			.index_box1 {
+				width: 100%;
+				padding: 0 15px;
+				/* height:179px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				position: relative;
+				margin-bottom: -16px;
+			}
+			.index_box2{
+				position: relative;
+				top: -16px;
+				z-index: 200;
+				height: 180px;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:10px;
+				flex-wrap: wrap;
+			}
+			.index_li{
+				width:33%;
+				height: 90px;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.ili_imgb{
+				width: 35px;
+				height: 35px;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 14px;
+			}
+			.index_li img{
+				width: auto;
+				height: auto;
+				max-width: 35px;
+				max-height: 35px;
+			}
+			.index_li_text{
+				font-size: 14px;
+				color: #444;
+			}
+			.index_title{
+				align-items: center;
+				padding: 0 30px;
+				height: 50px;
+				position: relative;
+			}
+			.index_title::before{
+				width:3.5px;
+				height:16px;
+				background:rgba(11,89,243,1);
+				opacity:0.85;
+				position: absolute;
+				top: 18px;
+				left: 15px;
+				content: '';
+			}
+			.index_box3{
+				width: 100%;
+				padding: 0 15px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.index_li2{
+				width: 25%;
+				height: 90px;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				color: #444;
+			}
+			.index_li2 img{
+				width: 42px;
+				height: 42px;
+				margin-bottom: 10px;
+			}
+			.index_box11{
+				justify-content: space-between;
+				margin-bottom: 10px;
+			}
+			.index_box4{
+				width: 32%;
+				min-height:108px;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+				border-radius:2px;
+				padding: 14px 12px ;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-direction: column;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.index_box4 .d1{
+				text-align: center;
+				font-weight: bold;
+				font-size: 15px;
+				color: #333;
+				margin-bottom: 7px;
+			}
+			.index_box4 .d2{
+				font-size: 10px;
+				color: #666;
+			}
+			.index_box12 .index_li{
+				height: 66px;
+				justify-content:space-between;
+				margin-bottom: 12px;
+			}
+			.index_box12 .index_li img{
+				width: 42px;
+				height: 42px;
+			}
+			.index_box12 .index_li_text{
+				position: relative;
+				top: -4px;
+			}
+			.index_box_zn{
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+			.i_znli{
+				flex-direction: column;
+				width: 48%;
+				padding-left: 15%;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				padding-right: 8px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: left center;
+				border-radius: 4px;
+			}
+			.i_znli .d1{
+				font-size: 14px;
+				color: #fff;
+				font-weight: bold;
+			}
+			.i_znli .d2{
+				font-size: .1rem;
+				color: #fff;
+			}
+			.mt10{
+				margin-top: 10px;
+			}
+			.mt15{
+				margin-top: 15px;
+			}
+			.index_hx{
+				width:100%;
+				height:5px;
+				background:rgba(247,247,247,1);
+			}
+			.index_footer{
+				flex-direction: column;
+				align-items: center;
+				padding-top: 20px;
+				padding-bottom: 10px;
+				color: #666;
+			}
+			.index_footer .d1{
+				font-size: 13px;
+			}
+			.index_footer .d2{
+				font-size: 10px;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="index_box">
+					<div class="H_title">社保代缴</div>
+					<div class="swiper-container swiper_box">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="###" style="background-image: url(./image/banner.jpg);"></a></div>
+							<div class="swiper-slide"><a href="###" style="background-image: url(./image/banner.jpg);"></a></div>
+							<div class="swiper-slide"><a href="###" style="background-image: url(./image/banner.jpg);"></a></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="index_box1">
+					<div class="index_box2 disflex">
+						<a href="#" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li1.png" alt="">
+							</div>
+							<div class="index_li_text">社保代缴</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li2.png" alt="">
+							</div>
+							<div class="index_li_text">服务价格</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li3.png" alt="">
+							</div>
+							<div class="index_li_text">在线客服</div>
+						</a>
+						<a href="djlc.html" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li4.png" alt="">
+							</div>
+							<div class="index_li_text">代缴流程</div>
+						</a>
+						<a href="cjwt.html" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li5.png" alt="">
+							</div>
+							<div class="index_li_text">常见问题</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<div class="ili_imgb disflex">
+								<img src="image/i_li6.png" alt="">
+							</div>
+							<div class="index_li_text">关于我们</div>
+						</a>
+					</div>
+				</div>
+				<div class="index_title disflex">社保用途</div>
+				<div class="index_box3 disflex">
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_03.jpg" alt="">
+						<div>看病买药</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_05.jpg" alt="">
+						<div>买房限购</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_07.jpg" alt="">
+						<div>养老生活</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_09.jpg" alt="">
+						<div>买车摇号</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_15.jpg" alt="">
+						<div>孩子上学</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_16.jpg" alt="">
+						<div>积分落户</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_17.jpg" alt="">
+						<div>产检生育</div>
+					</a>
+					<a  href="#" class="index_li2 disflex">
+						<img src="image/images/i_img_18.jpg" alt="">
+						<div>护照签证</div>
+					</a>
+				</div>
+				<div class="index_title disflex">3大核心优势</div>
+				<div class="index_box1 index_box11 disflex">
+					<div class="index_box4 disflex" style="background-image: url(image/images/i_img_24.jpg);">
+						<div class="d1">15年老牌</div>
+						<div class="d2">2006年成立15年行业经验，连续6年《企业信用评价AAA及信用企业》</div>
+					</div>
+					<div class="index_box4 disflex" style="background-image: url(image/images/i_img_26.jpg);">
+							<div class="d1">正规资质</div>
+							<div class="d2">拥有行业双全资质《人力资源服务许可证》《劳务派遣服务许可证》</div>
+					</div>
+					<div class="index_box4 disflex" style="background-image: url(image/images/i_img_28.jpg);">
+							<div class="d1">资金安全</div>
+							<div class="d2">担保交易，收缴保费银行专属委托监管，可查询缴纳进度与费用明细。</div>
+					</div>
+				</div>
+				<div class="index_title disflex">4大服务承诺</div>
+				<div  class="index_box3 disflex">
+					<div  class="index_box_zn disflex">
+						<div class="i_znli disflex" style="background-image: url(image/images/i_img_34.jpg);">
+							<div class="d1">资金安全承诺</div>
+							<div class="d2 oh3" title="承诺您的每笔资金、汇款、及相关记录永久可查缴纳款专款专用。">承诺您的每笔资金、汇款、及相关记录永久可查缴纳款专款专用。</div>
+						</div>
+						<div class="i_znli disflex" style="background-image: url(image/images/i_img_36.jpg);">
+							<div class="d1">事务效率承诺</div>
+							<div class="d2 oh3" title="承诺您提交的每件事务都 设置明进度可查拖延办理 全额双倍赔付。">承诺您提交的每件事务都 设置明进度可查拖延办理 全额双倍赔付。</div>
+						</div>
+						<div class="i_znli disflex mt15" style="background-image: url(image/images/i_img_41.jpg);">
+							<div class="d1">办事结果承诺</div>
+							<div class="d2 oh3" title="承诺如果您交代的事务出现错办漏办情况必追责全额双倍赔付。">承诺如果您交代的事务出现错办漏办情况必追责全额双倍赔付。</div>
+						</div>
+						<div class="i_znli disflex mt15" style="background-image: url(image/images/i_img_42.jpg);">
+							<div class="d1">信息保密承诺</div>
+							<div class="d2 oh3" title="承诺您的资料信息数据严 格保密管理一点泄密10倍 赔付。">承诺您的资料信息数据严 格保密管理一点泄密10倍 赔付。</div>
+						</div>
+					</div>
+				</div>
+				<div class="index_title disflex">更多产品</div>
+				
+				<div class="index_box12" style="width: 100%;">
+					<div class="index_box3 disflex">
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_46.jpg" alt="">
+							<div class="index_li_text">个人代缴</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_48.jpg" alt="">
+							<div class="index_li_text">公积金代缴</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_50.jpg" alt="">
+							<div class="index_li_text">人事档案</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_57.jpg" alt="">
+							<div class="index_li_text">工作居住证</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_55.jpg" alt="">
+							<div class="index_li_text">猎头服务</div>
+						</a>
+						<a href="#" class="index_li disflex">
+							<img src="image/images/i_img_58.jpg" alt="">
+							<div class="index_li_text">集体户口</div>
+						</a>
+					</div>
+				</div>
+				<div class="index_hx"></div>
+				<div class="index_footer disflex">
+					<div class="d1">北京顶盛人力资源公司</div>
+					<div class="d2">Icp-xxxx</div>
+					<div class="d2">电话：400-618-5171</div>
+				</div>
+			</div>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="jump('./index.html');">首页</li>
+					<li tapmode="hover" class="flex-con" @click="jump('./fuwu.html');">服务办事</li>
+					<li tapmode="hover" class="flex-con" @click="jump('./order_list.html');">订单</li>
+					<li tapmode="hover" class="flex-con" @click="jump('./my.html');">我的</li>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			$(function() {
+				var mySwiper = new Swiper('.swiper-container', {
+					autoplay: true, //可选选项，自动滑动
+					effect: 'fade',
+					pagination: {
+						el: '.swiper-pagination',
+					},
+				})
+				
+				
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+				}
+			});
+
+
+
+
+
+		
+		</script>
+	</body>
+
+</html>

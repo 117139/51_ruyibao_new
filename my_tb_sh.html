@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>账户名称修改</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+
+
+			
+
+			
+			.logout_btn{
+				width:80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+				margin: 60px auto 0;
+			}
+			.sh_box{
+				flex-direction: column;
+				align-items: center;
+			}
+			.sh_img{
+				width:127px;
+				height:127px;
+				margin-top: 100px;
+				margin-bottom: 60px;
+			}
+			.sh_tip{
+				font-size: 15px;
+				color: #c0c0c0;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				
+				<div class="disflex sh_box">
+					<img class="sh_img" src="./image/images/tb_sh_03.png" alt="">
+					<div class="sh_tip">账单审核之中，请耐心等待~</div>
+				</div>
+				
+				<a class="logout_btn disflex" href="index.html">返回首页</a>
+				
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+
+
+			
+
+
+
+		
+		</script>
+	</body>
+
+</html>

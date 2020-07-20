@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>关于我们</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+			.about_tit{
+				width: 100%;
+				text-align: center;
+				font-size: 16px;
+				color: #333;
+				height: 50px;
+				line-height: 50px;
+				font-weight: bold;
+			}
+			.box_015{
+				width: 100%;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.index_hx{
+				width:100%;
+				height:5px;
+				background:rgba(247,247,247,1);
+			}
+			.about_inr{
+				font-size: 14px;
+				color: #333;
+				text-indent: 2em;
+			}
+			.about_img{
+				width: 100%;
+				margin: 10px auto;
+			}
+			.about_li{
+				justify-content: space-between;
+				align-items: center;
+				padding: 13px 0;
+			}
+			.about_li+.about_li{
+				border-top: 1px solid #F7F7F7;
+			}
+			.about_li .d1{
+				width: 5em;
+				font-weight: bold;
+				font-size: 14px;
+				color: #333;
+			}
+			.about_li .d2{
+				font-size: 12px;
+				color: #333;
+			}
+			.map_tit{
+				line-height: 35px;
+				font-size: 14px;
+				color: #333;
+				font-weight: bold;
+			}
+			.map_box{
+				padding-bottom: 23px;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="box_015">
+					<div class="about_tit">公司简介</div>
+					<div class="about_inr">
+						如意保是北京顶盛人力资源有限公司旗下专业个体户自由职业者一站式社保代缴服务平台。
+						是专门为满足各类个体户自由职业者交社保办社保而推出的专业服务。
+						北京人力资源有限公司成立于2006年1月，注册资金1200万元。
+						成立15余年来一直一直以国内劳务派遣、人事外包；
+						人事档案管理；职业中介、社保外包、人力资源供求信息的收集、整理等按国家规定的人力资源相关服务为主；
+						拥有双资质证书《人力资源服务许可证》《劳务派遣经营许可证》（人力资源许可编号：110105718623）。
+          </div>
+					<img class="about_img" src="image/images/about_05.jpg" alt="">
+					<div class="about_li disflex">
+						<div class="d1 flex0">地址：</div>
+						<div class="d2 flex1">北京市朝阳区三元桥霞光里66号远洋新干线A座8层</div>
+					</div>
+					<div class="about_li disflex">
+						<div class="d1 flex0">邮箱：</div>
+						<div class="d2 flex1 tar">ds@ds2006.com</div>
+					</div>
+					<div class="about_li disflex">
+						<div class="d1 flex0">电话：</div>
+						<div class="d2 flex1 tar">售前：01051251898
+							<br>售后：01051286518
+							<br>客服：400-618-5171
+						</div>
+					</div>
+				</div>
+				<div class="index_hx"></div>
+				<div class="box_015 map_box">
+					<div class="map_tit">百度地图</div>
+					<img src="image/images/map_09.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+
+
+
+
+
+		
+		</script>
+	</body>
+
+</html>
