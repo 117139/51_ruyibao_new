@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>社保代缴</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/Area.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background-color: #fff;
+			}
+			.flex-con{
+				background-image: url(./image/images/sbdj_02.png);
+				-webkit-background-size: 100% auto;
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				padding: 15px 15px 0;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				/* padding: 0 18px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+			.rz_li{
+				width: 100%;
+				
+				box-shadow:0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+				background: rgba(255, 255, 255, 1);
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-radius: 4px;
+			}
+			.rz_li1{
+				width: 100%;
+				height: 40px;
+				justify-content: space-between;
+				align-items: center;
+				color: #333;
+			}
+			.rz_li1+.rz_li1,div+.rz_li1{
+				border-top: 1px solid #F3F4F6;
+			}
+			.my_box3 input{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 40px;
+				font-size: 15px;
+				color: #333;
+				text-align: right;
+				min-width: 0;
+			}
+			.logout_btn{
+				width:80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+			}
+			.img_box{
+				width: 100%;
+				background: #fff;
+				padding:0 0 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			
+			.hx_b{
+				width: 100%;
+				font-size: 14px;
+				color: #666;
+				align-items: center;
+				height:35px;
+				padding: 0 15px;
+				background:rgba(243,244,246,1);
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.iconnext {
+				color: #999;
+				font-size: 12px;
+				margin-left: 15px;
+			}
+			.sr_tip{
+				width: 100%;
+				padding: 8px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius:2px;
+				font-size: 13px;
+				color: #C5C4C4;
+			}
+			.hx_1{
+				width: 100%;
+				height:9px;
+				background:rgba(243,244,246,1);
+				margin-top: 10px;
+			}
+			.upimg_box{
+				justify-content: space-between;
+			}
+			.img_li_box{
+				width: 48%;
+			}
+			.img_li{
+				position: relative;
+				width: 85px;
+				height:85px;
+				margin-bottom: 10px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			.up_tip{
+				font-size: 13px;
+				text-align: center;
+				color: #54AAFF;
+			}
+			.pz_tip{
+				width: 100%;
+				font-size: 11px;
+				color: #999;
+				margin-top: 20px;
+			}
+			.b_box{
+				margin-top: 40px;
+				width: 100%;
+				height:62px;
+				justify-content: space-around;
+				align-items: center;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.logout_btn1{
+				background: #CFCFCF;
+			}
+			.hk_bz{
+				width: 100%;
+				padding: 10px;
+				height: 100px;
+				resize: none;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-bottom: 1px solid #F3F4F6;
+			}
+			.hx_f1{
+				width: 100%;
+				height:4px;
+				background:#F1F1F1;
+			}
+			.xz_tit{
+				font-size: 14px;
+				color: #333;
+				padding-top: 14px;
+				padding-bottom: 14px;
+				line-height: 16px;
+				position: relative;
+			}
+			.xz_tit::before{
+				content: '';
+				position: absolute;
+				top: 15px;
+				left: -7px;
+				width:2px;
+				height:14px;
+				background:rgba(21,113,216,1);
+				border-radius:2px;
+			}
+			.xz_inr{
+				font-size: 13px;
+				line-height: 24px;
+				color: #666;
+			}
+			.my_box3 .jf_int{
+				width: 140px;
+				height:25px;
+				text-align: center;
+				background:rgba(245,247,251,1);
+			}
+			.zd_btn{
+				align-items: center;
+				color: #549AED;
+				font-size: 11px;
+			}
+			.zd_btn .d1{
+				width:11px;
+				height:11px;
+				background:rgba(255,255,255,1);
+				border:1px solid rgba(153,153,153,1);
+				border-radius:50%;
+				margin-right: 5px;
+			}
+			.zd_btn.cur .d1{
+				width:11px;
+				height:11px;
+				background-image: url(image/selectpay.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				border:1px solid #549AED;
+				border-radius:50%;
+			}
+			.cb_fir{
+				width: 100px;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.cb1_1{
+				width:43px;
+				height:17px;
+				background: #F5F7FB;
+				align-items: center;
+				justify-content: center;
+				color: #999;
+				font-size: 13px;
+			}
+			.cb1_1.cur{
+				color: #fff;
+				background:rgba(52,151,250,1);
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+
+				<form id="my_box3" class="my_box3" >
+					
+					<div class="rz_li">
+						<a href="xzcbr.html" class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保人</div>
+							<input class="flex1" type="text" name="cbr" placeholder="请选择" :value="xzcbr" disabled="">
+							<i class=" iconfont iconnext"></i>
+						</a>
+						
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">是否为首次缴纳社保</div>
+							
+							<div class="cb_fir disflex">
+								<div class="cb1_1 disflex" :class="cb1_type==1?'cur':''" @click="cb1_type=1">是</div>
+								<div class="cb1_1 disflex" :class="cb1_type==0?'cur':''" @click="cb1_type=0">否</div>
+							</div>
+							<input type="hidden" :value="cb1_type" name="cb_fir">
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保地区</div>
+							<input class="flex1" type="text" name="cbdq" placeholder="请选择" value="北京"  readonly="">
+						</div>
+						<!-- 户口类型 -->
+						<div class="rz_li1 disflex" @click="showPicker1 = true">
+							<div class="flex0 rz_name">户口类型</div>
+							<input class="flex1" type="text" name="bklx" placeholder="请选择" :value="value1"  readonly="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						
+						<van-popup v-model="showPicker1" position="bottom">
+							<van-picker show-toolbar :columns="columns1" @cancel="showPicker1 = false" @confirm="onConfirm1" />
+						</van-popup>
+						<!-- /缴费方案 -->
+						<div class="rz_li1 disflex" @click="showPicker2 = true">
+							<div class="flex0 rz_name">缴费方案</div>
+							<input class="flex1" type="text" name="jffa" placeholder="请选择" :value="value2"  readonly="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<van-popup v-model="showPicker2" position="bottom">
+							<van-picker show-toolbar :columns="columns2" @cancel="showPicker2 = false" @confirm="onConfirm2" />
+						</van-popup>
+						<!-- 参保开始月份 -->
+						<div class="rz_li1 disflex" @click="showPicker_cb = true">
+							<div class="flex0 rz_name">参保开始月份</div>
+							<input class="flex1" type="text" name="cbtime" placeholder="请选择" :value="currentDate1"  readonly="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<van-popup v-model="showPicker_cb" position="bottom">
+							<van-datetime-picker
+							  v-model="currentDate"
+							  type="year-month"
+							  title="选择年月"
+							  :min-date="minDate"
+							  :max-date="maxDate"
+								:formatter="formatter"
+								@confirm='confirm'
+							/>
+						</van-popup>
+						<!-- 缴费基数 -->
+						<div class="rz_li1 disflex" >
+							<div class="flex0 rz_name">缴费基数</div>
+							<input class="jf_int" type="number" name="jfjs" placeholder="请输入" >
+							<div class="zd_btn disflex" :class="zd_type==1?'cur':''" @click="zd_fuc">
+								<div class="d1"></div>
+								<div>最低</div>
+							</div>
+							<input class="jf_int" type="hidden" name="zdjs" :value="zd_type" >
+							
+						</div>
+						<!-- /购买时长 -->
+						<div class="rz_li1 disflex" @click="showPicker3 = true">
+							<div class="flex0 rz_name">购买时长</div>
+							<input class="flex1" type="text" name="hk" placeholder="请选择" :value="value3" readonly="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<van-popup v-model="showPicker3" position="bottom">
+							<van-picker show-toolbar :columns="columns3" @cancel="showPicker3 = false" @confirm="onConfirm3" />
+						</van-popup>
+					</div>
+					
+					
+					<div class="hx_f1"></div>
+					<div class="rz_li">
+						<div class="xz_tit">重要须知</div>
+						<div class="xz_inr">
+							1、如果中途发起退款，微信手续费和服务费将不给予退还。
+							<br>2、本企业所提高供的社保公积金代缴服务，服务内容不包含劳动合同及劳动关系证明的办理。
+							<br>3、请确保所输入的身份证号码是正确。予退还。
+							<br>4、本企业所提高供的社保公积金代缴服务，服务内容不包含劳动合同及劳动关系证明的办理。
+							<br>5、请确保所输入的身份证号码是正确。
+							                            
+						</div>
+						
+						<div class="disflex b_box">
+							<!-- <button class="logout_btn disflex" type="submit">提交</button> -->
+							<div class="logout_btn disflex" onclick="sub()">下一步</div>
+						</div>
+					</div>
+					
+				</form>
+
+
+
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				if(sessionStorage.getItem('xzcbr')){
+					vm.xzcbr=sessionStorage.getItem('xzcbr');
+				}
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					xzcbr:'',
+					cb1_type:0,
+					showPicker1: false, //户口
+					columns1: [{
+							values: [
+								'本地城市',
+								'本地城市1',
+								'本地城市2',
+								'本地城市3'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					value1: '本地城市',
+					showPicker2: false, //缴费方案
+					columns2: [{
+							values: [
+								'社保+公积金+个人所得',
+								'社保+公积金+个人所得2',
+								'社保+公积金+个人所得2',
+								'社保+公积金+个人所得3'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					value2: '社保+公积金+个人所得',
+					showPicker3: false, //购买时长
+					columns3: [{
+							values: [
+								'1年',
+								'2年',
+								'3年',
+								'4年'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					value3: '1年',
+					showPicker_cb: false, 
+					minDate: new Date(1978, 10, 1),
+					maxDate: new Date(2225, 10, 1),
+					currentDate: new Date(),
+					currentDate1: gettime(new Date()),
+					zd_type:0,
+				},
+				created: function() {},
+				methods: {
+					formatter(type, val) {
+						if (type === 'year') {
+							return `${val}年`;
+						} else if (type === 'month') {
+							return `${val}月`;
+						}
+						return val;
+					},
+					confirm(e) {
+						console.log(e)
+						this.currentDate = e;
+						this.currentDate1 = gettime(e);
+						this.showPicker_cb = false;
+					},
+					onConfirm1(value) { //户口类型
+						console.log(value)
+						this.value1 = value[0];
+						this.showPicker1 = false;
+					},
+					onConfirm2(value) { //缴费方案
+						console.log(value)
+						this.value2 = value[0];
+						this.showPicker2 = false;
+					},
+					onConfirm3(value) { //购买时长
+						console.log(value)
+						this.value3 = value[0];
+						this.showPicker3 = false;
+					},
+				}
+			});
+			function zd_fuc(){
+				vm.zd_type=!vm.zd_type
+			}
+			function sub(){
+				var datas=$('.my_box3').serializeObject()
+				console.log(datas)
+				sessionStorage.removeItem('xzcbr');
+				top.window.location='sbdj1.html'
+					layer.msg('提交')
+			}
+			
+			function gettime(value) {
+			    var seperator1 = "/";
+			    value = new Date(value)
+			
+			    var year = value.getFullYear();
+			    console.log(year)
+			    var month = value.getMonth() + 1;
+			    var strDate = value.getDate();
+			    if (month >= 1 && month <= 9) {
+			        month = "0" + month;
+			    }
+			    if (strDate >= 0 && strDate <= 9) {
+			        strDate = "0" + strDate;
+			    }
+			    var currentdate = year + '年' + month + '月'
+			    return currentdate
+			}
+			function myback() {
+				history.go(-1)
+			}
+
+			function upup(e,type,id){
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();//获取文件后缀名
+				if(type=='img'){
+					//检查后缀名
+					if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+								layer.msg('文件格式必须为：png/jpg/jpeg');
+								return;  
+					}else{
+						//获取并记录图片的base64编码s
+						
+						console.log(e.files)
+							imgsj(e.files,0)
+						
+					}
+				}
+				
+			}	
+			function imgsj(imgs,num){
+				var reader = new FileReader();
+				reader.readAsDataURL(imgs[num]); // 读出 base64
+				console.log(imgs[num])
+				reader.onloadend = function () {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+						 var dataURL = reader.result;//base64
+						vm.imgs.push(dataURL)
+						if(num<imgs.length-1){
+							num++
+							imgsj(imgs,num)
+						}
+					 
+					 // upimg_img(e,0)
+				};
+			}
+		</script>
+	</body>
+
+</html>

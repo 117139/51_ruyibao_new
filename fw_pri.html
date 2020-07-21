@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>账户名称修改</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				min-height: 400px;
+				background-image: url(./image/images/sbfwbg_02.png);
+				-webkit-background-size: 100% auto;
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				padding: 0 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+
+			.my_box3 input{
+				width: 100%;
+				height: 45px;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 45px;
+				font-size: 15px;
+				color: #333;
+				
+				background: rgba(255, 255, 255, 1);
+			}
+			.logout_btn{
+				width:80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+				margin: 200px auto 0;
+			}
+			.fw_box{
+				width: 100%;
+				height: 2.7rem;
+				position: relative;
+			}
+			.fw_xq_btn{
+				position: absolute;
+				bottom: 15px;
+				left: 50%;
+				width:84px;
+				height:24px;
+				background:rgba(255,255,255,1);
+				border-radius:10px;
+				align-items: center;
+				justify-content: center;
+				font-size: 11px;
+				color: #377DE2;
+			}
+			.rz_li{
+				width: 100%;
+				
+				box-shadow:0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+				background: rgba(255, 255, 255, 1);
+				/* padding: 0 15px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-radius: 4px;
+			}
+			.rz_li1{
+				width: 100%;
+				height: 40px;
+				padding: 0 15px; 
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				justify-content: space-between;
+				align-items: center;
+				color: #333;
+			}
+			.csicon{
+				width: auto;
+				height: auto;
+				max-width: 15px;
+				max-height: 15px;
+				margin-right: 3px;
+			}
+			
+			.hx_f1{
+				width: 100%;
+				height:7px;
+				background:#F1F1F1;
+			}
+			.tc_list{
+				width: 100%;
+				flex-wrap: wrap;
+				padding-bottom: 20px;
+				justify-content: space-around;
+			}
+			.tc_li{
+				width:1.55rem;
+				height:1.88rem;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 4px 0px rgba(28,27,26,0.12);
+				border-radius:5px;
+				overflow: hidden;
+			}
+			.tc_tit{
+				width: 100%;
+				height: .4rem;
+				align-items: center;
+				justify-content: center;
+				background-image: url(./image/sbfw_xbg.png);
+				-webkit-background-size: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				color: #fff;
+				font-size: .2rem;
+			}
+			.tc_msg{
+				margin-top: .05rem;
+				flex-direction: column;
+				height: 1.4rem;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.tc_msg .d1{
+				font-size: .24rem;
+				color: #4d4d4d;
+			}
+			.tc_msg .d1 span{
+				font-size: .34rem;
+				color: #4d4d4d;
+				font-weight: bold;
+			}
+			.tc_msg .d2{
+				font-size: .20rem;
+				text-decoration:line-through;
+				color: rgba(77,77,77,0.5);
+			}
+			.tc_msg .d3{
+				font-size: .18rem;
+				color: #4d4d4d;
+			}
+			@media screen and (max-width: 330px) {
+				.tc_msg .d1{
+					font-size: 12px;
+					color: #4d4d4d;
+				}
+				.tc_msg .d1 span{
+					font-size: 17px;
+					color: #4d4d4d;
+					font-weight: bold;
+				}
+				.tc_msg .d2{
+					font-size: 10px;
+					text-decoration:line-through;
+					color: rgba(77,77,77,0.5);
+				}
+				.tc_msg .d3{
+					font-size: 9px;
+					color: #4d4d4d;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				
+				<div class="my_box3">
+					<div class="fw_box">
+						<a class="fw_xq_btn disflex" href="#">点击查看详情</a>
+					</div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="./image/sbfw.png" alt="">社保服务套餐</div>
+						</div>
+						<div class="tc_list disflex">
+							<div class="tc_li">
+								<div class="tc_tit disflex">A套餐</div>
+								<div class="disflex tc_msg">
+									<div class="d1"><span>88</span>元/月</div>
+									<div class="d2">原价158元/月</div>
+									<div class="d3">社会保险</div>
+								</div>
+							</div>
+							<div class="tc_li">
+								<div class="tc_tit disflex">B套餐</div>
+								<div class="disflex tc_msg">
+									<div class="d1"><span>218</span>元/月</div>
+									<div class="d2">原价318元/月</div>
+									<div class="d3">社保+公积金</div>
+								</div>
+							</div>
+							<div class="tc_li">
+								<div class="tc_tit disflex">C套餐</div>
+								<div class="disflex tc_msg">
+									<div class="d1"><span>388</span>元/月</div>
+									<div class="d2">原价599元/月</div>
+									<div class="d3">五险一金加个税</div>
+								</div>
+							</div>
+							<div class="tc_li">
+								<div class="tc_tit disflex">D套餐</div>
+								<div class="disflex tc_msg">
+									<div class="d1"><span>88</span>元/月</div>
+									<div class="d2">原价899元/月</div>
+									<div class="d3">VIP定制</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="hx_f1"></div>
+				</div>
+				
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+
+
+			
+
+
+
+		
+		</script>
+	</body>
+
+</html>

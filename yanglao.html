@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>养老生活</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+			.ylsh_banner{
+				width: 100%
+			}
+			.yl_box{
+				width: 100%;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.yl_tit{
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+				height: 60px;
+				font-size: 16px;
+				color: #333;
+			}
+			.ylhx{
+				width: 80%;
+				height:1px;
+				background:rgba(247,247,247,1);
+				margin: 0 auto;
+			}
+			.yl_inr{
+				padding-top: 10px;
+				text-indent: 2em;
+				font-size: 13px;
+				color: #333;
+			}
+			.zx_btn{
+				width: 80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 15px;
+				color: #fff;
+			}
+			.b_box{
+				width: 100%;
+				height: 60px;
+				align-items: center;
+				justify-content: center;
+			}
+			.yl_inr{
+				font-size: 13px;
+				color: #333;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<img class="ylsh_banner" src="image/images/ylsh_02.jpg" alt="">
+				<div class="yl_box">
+					<div class="yl_tit disflex">养老生活</div>
+					<div class="ylhx"></div>
+					<div class="yl_inr">
+							近几年“人口老龄化”这个词语越来越高频词的出现在我们的视线里，“日本老人76岁开始在咖啡馆上岗开始工作”，“意大利法定退休年龄67岁，是全球经济体法定			退休年龄最高的国家之一，”“韩国单身家庭占三成：预计50年后韩	    国1名工作者赡养1名老人”，“2050年中国老年人口或超总人口三成”，越来越多的人口老龄化问题暴露在大众视野里。
+					</div>
+				</div>
+				
+			</div>
+			<div class="b_box disflex">
+				<a class="zx_btn disflex" href="#">立即咨询</a>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					cysp_cur: 1, //视频分类
+					ss_type: 0,
+					data_list: [],
+
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+
+
+			
+
+
+
+		
+		</script>
+	</body>
+
+</html>

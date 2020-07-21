@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>测算保费</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/Area.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background-color: #fff;
+			}
+			.flex-con{
+				background-image: url(./image/images/sbdj_02.png);
+				-webkit-background-size: 100% auto;
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				padding: 15px 15px 0;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				padding: 0 0 68px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+			.rz_li{
+				width: 100%;
+				box-shadow:0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+				background: rgba(255, 255, 255, 1);
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-radius: 4px;
+			}
+			.rz_li1{
+				width: 100%;
+				min-height: 40px;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.rz_li1+.rz_li1,div+.rz_li1{
+				border-top: 1px solid #F3F4F6;
+			}
+			.my_box3 input{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 40px;
+				font-size: 15px;
+				color: #333;
+				text-align: right;
+				min-width: 0;
+				color: #999;
+			}
+			.logout_btn{
+				width:44%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+			}
+			.img_box{
+				width: 100%;
+				background: #fff;
+				padding:0 0 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			
+			.hx_b{
+				width: 100%;
+				font-size: 14px;
+				color: #666;
+				align-items: center;
+				height:35px;
+				padding: 0 15px;
+				background:rgba(243,244,246,1);
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.iconnext {
+				color: #999;
+				font-size: 12px;
+				margin-left: 15px;
+			}
+			.sr_tip{
+				width: 100%;
+				padding: 8px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius:2px;
+				font-size: 13px;
+				color: #C5C4C4;
+			}
+			.hx_1{
+				width: 100%;
+				height:9px;
+				background:rgba(243,244,246,1);
+				margin-top: 10px;
+			}
+			.upimg_box{
+				justify-content: space-between;
+			}
+			.img_li_box{
+				width: 48%;
+			}
+			.img_li{
+				position: relative;
+				width: 100%;
+				height:85px;
+				margin-bottom: 10px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			.up_tip{
+				font-size: 13px;
+				text-align: center;
+				color: #54AAFF;
+			}
+			.up_tip{
+				font-size: 13px;
+				text-align: center;
+				color: #54AAFF;
+			}
+			.pz_tip{
+				width: 100%;
+				font-size: 11px;
+				color: #999;
+				margin-top: 20px;
+			}
+			.b_box{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height:62px;
+				background:#fff;
+				justify-content: space-around;
+				align-items: center;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				box-shadow:0px 2px 7px 0px rgba(0, 0, 0, 0.1);
+			}
+			.logout_btn1{
+				width: 44%;
+				height: 38px;
+				line-height: 38px;
+				align-items: center;
+				justify-content: center;
+				background: #fff;
+				color: #999;
+				font-size: 12px;
+			}
+			.hk_bz{
+				width: 100%;
+				padding: 10px;
+				height: 100px;
+				resize: none;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-bottom: 1px solid #F3F4F6;
+			}
+			.hx_f1{
+				width: 100%;
+				height:4px;
+				background:#F1F1F1;
+			}
+			.xz_tit{
+				font-size: 14px;
+				color: #333;
+				padding-top: 18px;
+				padding-bottom: 18px;
+				line-height: 16px;
+				position: relative;
+			}
+			.xz_tit::before{
+				content: '';
+				position: absolute;
+				top: 19px;
+				left: -7px;
+				width:2px;
+				height:14px;
+				background:rgba(21,113,216,1);
+				border-radius:2px;
+			}
+			.xz_inr{
+				font-size: 13px;
+				line-height: 24px;
+				color: #666;
+			}
+			.my_box3 .jf_int{
+				width: 140px;
+				height:25px;
+				text-align: center;
+				background:rgba(245,247,251,1);
+			}
+			.zd_btn{
+				align-items: center;
+				color: #549AED;
+				font-size: 11px;
+			}
+			.zd_btn .d1{
+				width:11px;
+				height:11px;
+				background:rgba(255,255,255,1);
+				border:1px solid rgba(153,153,153,1);
+				border-radius:50%;
+				margin-right: 5px;
+			}
+			.zd_btn.cur .d1{
+				width:11px;
+				height:11px;
+				background-image: url(image/selectpay.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				border:1px solid #549AED;
+				border-radius:50%;
+			}
+			.fy_msg{
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: right;
+				margin-left: 10px;
+			}
+			.sbfy{
+				color: #F95454;
+				font-size: 18px;
+			}
+			.sbfy span{
+				font-size: 13px;
+			}
+			.jz_time{
+				font-size: 10px;
+				color: #999;
+				margin-top: 4px;
+				margin-bottom: 4px;
+			}
+			.sbfy_tip{
+				color: #F95454;
+				font-size: 10px;
+			}
+			.rz_li12{
+				color: #3497FA;
+				font-size: 11px;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			.img_box .img_li{
+				position: relative;
+				width: auto;
+			}
+			.img_box .img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			.csicon{
+				width: auto;
+				height: auto;
+				max-width: 18px;
+				max-height: 18px;
+				margin-right: 5px;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+
+				<form id="my_box3" class="my_box3" >
+					
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon1.png" alt="">社保</div>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保类型</div>
+							<input class="flex1" type="text" name="cbhk" id="" value="城镇户口" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保月份</div>
+							<input class="flex1" type="text" name="cb_month" id="" value="2020年7月" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">缴费基数</div>
+							<input class="flex1" type="text" name="jfjs" id="" value="3660.00" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">是否当地首次缴社保</div>
+							<input class="flex1" type="text" name="cb_fir" id="" value="否" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">费用小计</div>
+							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<input class="flex1" type="hidden" name="fyjx" id="" value="588.58" readonly=""/>
+						</div>
+						
+						
+					</div>
+					
+					
+					<div class="hx_f1"></div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon2.png" alt="">公积金</div>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保月份</div>
+							<input class="flex1" type="text" name="cb_month_gjj" id="" value="2020年7月" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">缴费基数</div>
+							<input class="flex1" type="text" name="jfjs_gjj" id="" value="3660.00" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">是否当地首次缴社保</div>
+							<input class="flex1" type="text" name="cb_fir_gjj" id="" value="否" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">费用小计</div>
+							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<input class="flex1" type="hidden" name="fyjx_gjj" id="" value="588.58" readonly=""/>
+						</div>
+						
+						
+					</div>
+					<div class="hx_f1"></div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon3.png" alt="">个人所得税</div>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">参保月份</div>
+							<input class="flex1" type="text" name="cb_month_gr" id="" value="2020年7月" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">缴费基数</div>
+							<input class="flex1" type="text" name="jfjs_gr" id="" value="3660.00" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">个人税金</div>
+							<input class="flex1" type="text" name="grsj_gr" id="" value="3303" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">残疾人保障金</div>
+							<input class="flex1" type="text" name="cjrbzj_gr" id="" value="0" readonly=""/>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">费用小计</div>
+							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<input class="flex1" type="hidden" name="fyjx_gr" id="" value="588.58" readonly=""/>
+						</div>
+						
+						
+					</div>
+					
+					<div class="disflex b_box">
+						<div class="logout_btn1 disflex" style="align-items: baseline ;">共 <span style="color: #F64A4A;font-size: 12px;">￥</span><span style="color: #F64A4A;font-size: 19px;">588.58</span> 元</div>
+						<div class="logout_btn disflex" onclick="sub()">立即参保</div>
+					</div>
+				</form>
+
+
+
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					sfz1:'',
+					sfz2:'',
+					imgs:[]
+				},
+				created: function() {},
+				methods: {
+					
+				}
+			});
+			function sub(){
+				var datas=$('.my_box3').serializeObject()
+				console.log(datas)
+				top.window.location='sbdj2.html'
+					layer.msg('提交')
+			}
+			function upup_sfz(e, type,num) {
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(); //获取文件后缀名
+				if (type == 'img') {
+					//检查后缀名
+					if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+						layer.msg('文件格式必须为：png/jpg/jpeg');
+						return;
+					} else {
+						//获取并记录图片的base64编码s
+			
+						console.log(e.files)
+						var reader = new FileReader();
+						reader.readAsDataURL(e.files[0]); // 读出 base64
+						console.log(e.files[0])
+						reader.onloadend = function() {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+							var dataURL = reader.result; //base64
+							if(num==1){
+								vm.sfz1=dataURL
+							}
+							if(num==2){
+								vm.sfz2=dataURL
+							}
+						
+							// upimg_img(e,0)
+						};
+			
+					}
+				}
+			
+			}
+
+			function upup(e,type,id){
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();//获取文件后缀名
+				if(type=='img'){
+					//检查后缀名
+					if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+								layer.msg('文件格式必须为：png/jpg/jpeg');
+								return;  
+					}else{
+						//获取并记录图片的base64编码s
+						
+						console.log(e.files)
+							imgsj(e.files,0)
+						
+					}
+				}
+				
+			}	
+			function imgsj(imgs,num){
+				var reader = new FileReader();
+				reader.readAsDataURL(imgs[num]); // 读出 base64
+				console.log(imgs[num])
+				reader.onloadend = function () {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+						 var dataURL = reader.result;//base64
+						vm.imgs.push(dataURL)
+						if(num<imgs.length-1){
+							num++
+							imgsj(imgs,num)
+						}
+					 
+					 // upimg_img(e,0)
+				};
+			}
+		</script>
+	</body>
+
+</html>

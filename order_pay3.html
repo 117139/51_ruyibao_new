@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>资格认证</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/Area.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+
+
+			
+
+			.my_box3 {
+				width: 100%;
+				/* padding: 0 18px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin-bottom: 13px;
+			}
+			.rz_li{
+				width: 100%;
+				
+				background: rgba(255, 255, 255, 1);
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.rz_li1{
+				width: 100%;
+				height: 50px;
+				
+				align-items: center;
+			}
+			.rz_li1+.rz_li1{
+				border-top: 1px solid #F3F4F6;
+			}
+			.my_box3 input{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				line-height: 45px;
+				font-size: 15px;
+				color: #333;
+				text-align: right;
+			}
+			.logout_btn{
+				width:80%;
+				height:38px;
+				background:rgba(52,151,250,1);
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+				border-radius:38px;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				color: #fff;
+			}
+			.img_box{
+				width: 100%;
+				background: #fff;
+				padding:0 0 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.img_box img{
+				width:1.48rem;
+				height:1.48rem;
+				margin-right: .09rem;
+			}
+			
+			.hx_b{
+				width: 100%;
+				font-size: 14px;
+				color: #666;
+				align-items: center;
+				height:35px;
+				padding: 0 15px;
+				background:rgba(243,244,246,1);
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.iconnext {
+				color: #999;
+				font-size: 12px;
+			}
+			.sr_tip{
+				width: 100%;
+				padding: 8px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background:rgba(255,255,255,1);
+				box-shadow:0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				border-radius:2px;
+				font-size: 13px;
+				color: #C5C4C4;
+			}
+			.hx_1{
+				width: 100%;
+				height:9px;
+				background:rgba(243,244,246,1);
+				margin-top: 10px;
+			}
+			.upimg_box{
+				justify-content: space-between;
+			}
+			.img_li_box{
+				width: 48%;
+			}
+			.img_li{
+				position: relative;
+				width: 85px;
+				height:85px;
+				margin-bottom: 10px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.img_li input{
+				width: 100%;
+				height: 100%;
+				min-width: 0;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			.up_tip{
+				font-size: 13px;
+				text-align: center;
+				color: #54AAFF;
+			}
+			.pz_tip{
+				width: 100%;
+				font-size: 11px;
+				color: #999;
+				margin-top: 20px;
+			}
+			.b_box{
+				margin-top: 40px;
+				width: 100%;
+				height:62px;
+				justify-content: space-around;
+				align-items: center;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.logout_btn1{
+				background: #CFCFCF;
+			}
+			.hk_bz{
+				width: 100%;
+				padding: 10px;
+				height: 100px;
+				resize: none;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-bottom: 1px solid #F3F4F6;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+
+				<form id="my_box3" class="my_box3" >
+					<div class="hx_b disflex"><span style="color: #FB5050;">*</span>必填项</div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">汇款金额</div>
+							<input class="flex1" type="text" name="money" placeholder="请输入汇款金额" required="required">
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">汇款账号</div>
+							<input class="flex1" type="number" name="name" placeholder="请输入汇款时您自己的银行卡号" required="required">
+						</div>
+
+					</div>
+					<div class="hx_b disflex">选填项：</div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex" @click="showPicker1 = true">
+							<div class="flex0 rz_name">汇款时间</div>
+							<input class="flex1" type="text" name="time" placeholder="请选择汇款时间" :value="currentDate1" disabled="">
+							<i class=" iconfont iconnext"></i>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">汇款备注</div>
+
+						</div>
+						<textarea name="" id="" cols="30" rows="10" class="hk_bz" name="content" placeholder="请输入"></textarea>
+
+						<van-popup v-model="showPicker1" position="bottom">
+							<van-datetime-picker
+							  v-model="currentDate"
+							  type="date"
+							  title="选择年月日"
+							  :min-date="minDate"
+							  :max-date="maxDate"
+								:formatter="formatter"
+								@confirm='confirm'
+							/>
+						</van-popup>
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name">汇款凭证</div>
+						
+						</div>
+						<div class="img_box disflex">
+							<div class="img_li" v-for="(item,index) in imgs">
+								<img :src="item" alt="">
+							</div>
+						
+							<div class="img_li">
+								<img src="image/images/upimg_03.jpg" alt="">
+								<input data-type='sfzimg' type="file" multiple onchange="upup(this,'img')" accept="image/*">
+							</div>
+							<input type="hidden" name='zz' :value="imgs.join('^')">
+						</div>
+					</div>
+					
+					<div class="disflex b_box">
+						<!-- <button class="logout_btn disflex" type="submit">提交</button> -->
+						<div class="logout_btn disflex" onclick="sub()">提交</div>
+					</div>
+				</form>
+
+
+
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					area: '',
+					areaarr: [],
+					useraddress: '',
+					imgs: [],
+					showPicker1: false, 
+					minDate: new Date(),
+					maxDate: new Date(2225, 10, 1),
+					currentDate: new Date(),
+					currentDate1: gettime(new Date()),
+					
+				},
+				created: function() {},
+				methods: {
+					formatter(type, val) {
+						if (type === 'year') {
+							return `${val}年`;
+						} else if (type === 'month') {
+							return `${val}月`;
+						}
+						return val;
+					},
+					confirm(e) {
+						console.log(e)
+						this.currentDate = e;
+						this.currentDate1 = gettime(e);
+						this.showPicker1 = false;
+					},
+				}
+			});
+			function sub(){
+				var datas=$('.my_box3').serializeObject()
+				console.log(datas)
+				if(!datas.money){
+					layer.msg('请输入汇款金额')
+					return
+				}
+				if(!datas.name){
+					layer.msg('请输入汇款账号')
+					return
+				}
+				//提交
+				
+					layer.msg('提交')
+			}
+			
+			function gettime(value) {
+			    var seperator1 = "/";
+			    value = new Date(value)
+			
+			    var year = value.getFullYear();
+			    console.log(year)
+			    var month = value.getMonth() + 1;
+			    var strDate = value.getDate();
+			    if (month >= 1 && month <= 9) {
+			        month = "0" + month;
+			    }
+			    if (strDate >= 0 && strDate <= 9) {
+			        strDate = "0" + strDate;
+			    }
+			    var currentdate = year + seperator1 + month + seperator1 + strDate;
+			    return currentdate
+			}
+			function myback() {
+				history.go(-1)
+			}
+
+			function upup(e,type,id){
+				// 检查是否是图片
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();//获取文件后缀名
+				if(type=='img'){
+					//检查后缀名
+					if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+								layer.msg('文件格式必须为：png/jpg/jpeg');
+								return;  
+					}else{
+						//获取并记录图片的base64编码s
+						
+						console.log(e.files)
+							imgsj(e.files,0)
+						
+					}
+				}
+				
+			}	
+			function imgsj(imgs,num){
+				var reader = new FileReader();
+				reader.readAsDataURL(imgs[num]); // 读出 base64
+				console.log(imgs[num])
+				reader.onloadend = function () {
+							// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+						 var dataURL = reader.result;//base64
+						vm.imgs.push(dataURL)
+						if(num<imgs.length-1){
+							num++
+							imgsj(imgs,num)
+						}
+					 
+					 // upimg_img(e,0)
+				};
+			}
+		</script>
+	</body>
+
+</html>

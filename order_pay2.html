@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>银行汇款</title>
+		<script type="text/javascript" src="./script/api.js"></script>
+		<script src="./script/jquery.min.js"></script>
+		<script src="./script/jquery-weui.min.js"></script>
+		<script src="./script/vue.min.js"></script>
+		<script src="./script/swiper.min.js"></script>
+		<script src="./script/vant.js"></script>
+		<script src="./script/IPurl.js"></script>
+		<script src="./script/jump.js"></script>
+		<script src="./script/layer/layer.js"></script>
+		<!-- <script src="./script/font/iconfont.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="./css/api.css" />
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/class.css" />
+		<link rel="stylesheet" type="text/css" href="./css/vantIndex.css" />
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+			
+			.hx{
+				width: 100%;
+				height:6px;
+				background:rgba(242,242,242,1);
+			}
+			.zf_li{
+				width: 100%;
+				padding: 0 15px;
+				line-height: 45px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				font-size: 15px;
+				color: #333;
+			}
+			.zf_li1{
+				width: 100%;
+				padding: 0 15px;
+				line-height: 18px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				font-size: 12px;
+				color: #999;
+			}
+			.pay_btn{
+				width:80%;
+				height:35px;
+				background:rgba(52,151,250,1);
+				border-radius:36px;
+				align-items: center;
+				justify-content: center;
+				margin: 70px auto 10px;
+				font-size: 15px;
+				color: #fff;
+			}
+			
+			.hk_box{
+				width: 100%;
+				padding: 10px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.hk_bg{
+				width: 100%;
+				/* height: 306px; */
+				background-image: url(image/images/hk_bg_03.png);
+				background-repeat:no-repeat;
+				background-position: top;
+				-webkit-background-size: 100% 100%;
+				background-size: 100% 100%;
+				padding: 20px 12px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+			}
+			.hk_li{
+				width: 100%;
+				height: 45px;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 15px;
+				color: #333;
+			}
+			.hk_li input{
+				text-align: right;
+				font-size: 13px;
+			}
+			.hx_1{
+				width: 100%;
+				height:1px;
+				background:rgba(247,247,247,1);
+				border-radius:4px;
+				padding:0 15px;
+				margin: 0 -15px 12px;
+			}
+			.tp_tip{
+				font-size: 15px;
+				color: #333;
+			}
+			.tp_tip_li{
+				font-size: 12px;
+				color: #999;
+				margin-top: 10px;
+			}
+			@media screen and (max-width: 330px) {}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="hk_box">
+					<div class="hk_bg">
+						<div class="hk_li disflex">
+							<div>账户名</div>
+							<input type="text" placeholder="请输入" v-model="name">
+						</div>
+						<div class="hk_li disflex">
+							<div>开户行</div>
+							<input type="text" placeholder="请输入" v-model="yh_name">
+						</div>
+						<div class="hk_li disflex">
+							<div>银行账号</div>
+							<input type="text" placeholder="请输入" v-model="yh_card">
+						</div>
+						<div class="hx_1"></div>
+						<div class="tp_tip">特别提醒</div>
+						<div class="tp_tip_li">1、汇款时务必在备注处填写您的注册手机号码。</div>
+						<div class="tp_tip_li">2、汇款完成后，请按照第二步骤操作提交汇款信息。</div>
+						<div class="tp_tip_li">3、亲亲小保确认收到汇款才能办理业务，请尽可能的提前汇款。</div>
+						<div class="tp_tip_li">4、线下汇款需2-3个工作日到账，如着急请使用在线支付。</div>
+					</div>
+				</div>
+				<div class="zf_li">第二步：汇款完成，填写汇款信息</div>
+				<div class="zf_li1">注：填写汇款信息有助于提升工作人员的审核效率，从而缩短您的资金到账时间。</div>
+				<div class="pay_btn disflex" onclick="gopay()">填写汇款信息</div>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			var token
+			var phone
+			var loading = false
+			$(function() {
+				
+			})
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					name: '',
+					yh_name: '',
+					yh_card:''
+				},
+				created: function() {},
+				methods: {
+					onConfirm_type: function(value) {
+
+					},
+				}
+			});
+			
+			function gopay(){
+				if(!vm.name){
+					layer.msg('请输入账户名')
+					return
+				}
+				if(!vm.yh_name){
+					layer.msg('请输入开户行')
+					return
+				}
+				if(!vm.yh_card){
+					layer.msg('请输入银行账号')
+					return
+				}
+				top.window.location='order_pay3.html'
+			}
+			
+
+
+
+		
+		</script>
+	</body>
+
+</html>

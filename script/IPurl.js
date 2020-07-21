@@ -4,6 +4,23 @@ var IPurl = "http://xiaoyudaigou168.com.aa.800123456.top/api/";
 var imgurl = "http://xiaoyudaigou168.com.aa.800123456.top/";
 // var headurl = "http://bojiujia.800123456.top";
 
+
+//表单获取
+$.fn.serializeObject = function() {
+	var ct = this.serializeArray();
+	var obj = {};
+	$.each(ct, function() {
+			if (obj[this.name] !== undefined) {
+					if (!obj[this.name].push) {
+							obj[this.name] = [obj[this.name]];
+					}
+					obj[this.name].push(this.value || "");
+			} else {
+					obj[this.name] = this.value || "";
+			}
+	});
+	return obj;
+};
 // 等比例缩放
 $(function(){
 	if(window.screen.width>472){

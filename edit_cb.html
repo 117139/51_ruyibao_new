@@ -410,66 +410,6 @@
 
 			}
 
-			function imgsj(imgs, num) {
-				var reader = new FileReader();
-				reader.readAsDataURL(imgs[num]); // 读出 base64
-				console.log(imgs[num])
-				reader.onloadend = function() {
-					// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
-					var dataURL = reader.result; //base64
-					vm.imgs.push(dataURL)
-					if (num < imgs.length - 1) {
-						num++
-						imgsj(imgs, num)
-					}
-
-					// upimg_img(e,0)
-				};
-			}
-
-			function upimg_img(e, e_idx) {
-				var formData = new FormData();
-				formData.append("file", e.files[e_idx])
-				$.ajax({
-					url: '',
-					data: formData,
-					type: "post",
-					dataType: 'json',
-					processData: false,
-					contentType: false,
-					beforeSend: function() {
-						layer.msg('正在上传中...', {
-							icon: 16,
-							shade: 0.01,
-							time: false
-						});
-					},
-					success: function(res) {
-						if (res.code == 200) {
-							layer.closeAll()
-
-							vm.imgs.push(res.data)
-							var imgarr = vm.imgs.split(',')
-							if (imgarr >= 10) {
-								layer.msg("最多只能上传9张图片")
-								return
-							}
-							if (e_idx < e.files.length) {
-								upimg_img(e, e_idx)
-							}
-
-						} else {
-							layer.msg('上传失败')
-						}
-
-					},
-					error: function(err) {
-						layer.closeAll()
-						layer.msg('上传失败')
-						console.log(err)
-					}
-				})
-			}
 		</script>
 	</body>
 
