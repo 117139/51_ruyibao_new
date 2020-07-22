@@ -176,6 +176,142 @@
 				font-size: .18rem;
 				color: #4d4d4d;
 			}
+			.fw_zhu{
+				font-size: .16rem;
+				color: #A9A9A9;
+				width: 100%;
+				padding: 0 10px .3rem;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.fw_zhu span{
+				font-size: .18rem;
+				color: #4c4c4c;
+			}
+			.xz_tit{
+				font-size: 14px;
+				color: #333;
+				padding-top: 14px;
+				padding-bottom: 14px;
+				line-height: 16px;
+				position: relative;
+				padding-left: 16px;
+			}
+			.xz_tit::before{
+				content: '';
+				position: absolute;
+				top: 15px;
+				left: 6px;
+				width:2px;
+				height:14px;
+				background:rgba(21,113,216,1);
+				border-radius:2px;
+			}
+			.index_box1 {
+				width: 100%;
+				padding: 0 15px;
+				/* height:179px; */
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.index_box2{
+				position: relative;
+				top: 0px;
+				z-index: 200;
+				height: 180px;
+				background:rgba(255,255,255,1);
+				/* box-shadow:0px 2px 10px 0px rgba(0, 0, 0, 0.1); */
+				border-radius:10px;
+				flex-wrap: wrap;
+			}
+			.index_li{
+				width:33%;
+				height: 90px;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.ili_imgb{
+				width: 35px;
+				height: 35px;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 14px;
+			}
+			.index_li img{
+				width: auto;
+				height: auto;
+				max-width: 35px;
+				max-height: 35px;
+			}
+			.index_li_text{
+				font-size: 14px;
+				color: #444;
+			}
+			
+			
+			.index_box3{
+				width: 100%;
+				padding: 0 15px 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				flex-wrap: wrap;
+			}
+			.index_box_zn{
+				width: 100%;
+				justify-content: space-around;
+				flex-wrap: wrap;
+			}
+			.i_znli{
+				flex-direction: column;
+				justify-content: space-around;
+				width: 2.85rem;
+				height: 1.26rem;
+				padding-left: 15%;
+				padding-top: .32rem;
+				padding-bottom: .32rem;
+				padding-right: .24rem;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: left center;
+				border-radius: 4px;
+			}
+			.i_znli .d1{
+				font-size: .24rem;
+				color: #fff;
+				text-align: right;
+			}
+			.i_znli .d2{
+				text-align: right;
+				font-size: .24rem;
+				color: #fff;
+			}
+			.mt10{
+				margin-top: 10px;
+			}
+			.mt15{
+				margin-top: 15px;
+			}
+			.index_footer{
+				flex-direction: column;
+				align-items: center;
+				padding-top: 20px;
+				padding-bottom: 10px;
+				color: #666;
+			}
+			.index_footer .d1{
+				font-size: 13px;
+			}
+			.index_footer .d2{
+				font-size: 10px;
+			}
 			@media screen and (max-width: 330px) {
 				.tc_msg .d1{
 					font-size: 12px;
@@ -245,8 +381,145 @@
 								</div>
 							</div>
 						</div>
+						<div class="fw_zhu disflex">
+							<span>注：</span>
+							<div>1、套餐费用一次性支付，社保费可以月付。购买套餐时间越长越优惠。
+								<br>2、套餐仅限北京市随机地区使用，因升学购房必须选缴费区地域的服务费为原价。
+								<br>3、如需另外需缴纳公积金服务则服务费按原价收取。
+              </div>
+						</div>
 					</div>
 					<div class="hx_f1"></div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="./image/sbfw.png" alt="">服务项目</div>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="xz_tit">基础服务</div>
+						</div>
+						
+						<div class="index_box1">
+							<div class="index_box2 disflex">
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri1.png" alt="">
+									</div>
+									<div class="index_li_text">新参保转入</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri2.png" alt="">
+									</div>
+									<div class="index_li_text">申领社保卡</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri3.png" alt="">
+									</div>
+									<div class="index_li_text">申领医保存折</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri4.png" alt="">
+									</div>
+									<div class="index_li_text">医疗费用报销</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri5.png" alt="">
+									</div>
+									<div class="index_li_text">社保信息修改</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri6.png" alt="">
+									</div>
+									<div class="index_li_text">定点医院变更</div>
+								</a>
+							</div>
+						</div>
+						
+						<div class="rz_li1 disflex" style="border-top: 1px solid rgba(211,211,211,0.5);">
+							<div class="xz_tit">选购服务项目</div>
+						</div>
+						
+						<div class="index_box1">
+							<div class="index_box2 disflex">
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri7.png" alt="">
+									</div>
+									<div class="index_li_text">生育补贴申领</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri8.png" alt="">
+									</div>
+									<div class="index_li_text">补充医疗保险</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri9.png" alt="">
+									</div>
+									<div class="index_li_text">公积金服务</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri10.png" alt="">
+									</div>
+									<div class="index_li_text">人事证件代办</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri11.png" alt="">
+									</div>
+									<div class="index_li_text">缴个人所得税</div>
+								</a>
+								<a href="###" class="index_li disflex">
+									<div class="ili_imgb disflex">
+										<img src="image/images/fwpri12.png" alt="">
+									</div>
+									<div class="index_li_text">人事档案服务</div>
+								</a>
+							</div>
+						</div>
+						
+					</div>
+					<div class="hx_f1"></div>
+					<div class="rz_li">
+						<div class="rz_li1 disflex">
+							<div class="flex0 rz_name disflex aic"><img class="csicon" src="./image/sbfw.png" alt="">服务保障体系</div>
+						</div>
+						<div class="rz_li1 disflex">
+							<div class="xz_tit">服务保障体系</div>
+						</div>
+						
+						<div  class="index_box3 disflex">
+							<div  class="index_box_zn disflex">
+								<div class="i_znli disflex" style="background-image: url(image/images/fwpri13.png);">
+									<!-- <div class="d1">保险状态</div>
+									<div class="d2 oh3" title="监察系统">监察系统</div> -->
+								</div>
+								<div class="i_znli disflex" style="background-image: url(image/images/fwpri14.png);">
+									<!-- <div class="d1">支付安全 </div>
+									<div class="d2 oh3" title="保障系统">保障系统</div> -->
+								</div>
+								<div class="i_znli disflex mt15" style="background-image: url(image/images/fwpri15.png);">
+									<!-- <div class="d1">信息安全</div>
+									<div class="d2 oh3" title="保障体系">保障体系</div> -->
+								</div>
+								<div class="i_znli disflex mt15" style="background-image: url(image/images/fwpri16.png);">
+									<!-- <div class="d1">三方银行</div>
+									<div class="d2 oh3" title="资金托管">资金托管</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="index_footer disflex">
+							<div class="d1">北京顶盛人力资源公司</div>
+							<div class="d2">Icp-xxxx</div>
+							<div class="d2">电话：400-618-5171</div>
+						</div>
+					</div>
 				</div>
 				
 			</div>
