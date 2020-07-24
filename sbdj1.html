@@ -63,7 +63,7 @@
 			}
 			.rz_li1{
 				width: 100%;
-				min-height: 40px;
+				min-height: 50px;
 				justify-content: space-between;
 				align-items: center;
 			}
@@ -119,10 +119,16 @@
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
 			}
+			.mx_btn{
+				margin-left: 10px;
+				align-items: center;
+				font-size: 14px;
+				color: #999;
+			}
 			.iconnext {
 				color: #999;
 				font-size: 12px;
-				margin-left: 15px;
+				margin-left: 5px;
 			}
 			.sr_tip{
 				width: 100%;
@@ -331,6 +337,148 @@
 				max-height: 18px;
 				margin-right: 5px;
 			}
+			.rz_li_tip{
+				margin-bottom: 8px;
+				padding: 5px 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				width: 100%;
+			}
+			.cs_tip_1{
+				font-size:.22rem;
+				font-family:PingFang SC;
+				font-weight:500;
+				color:rgba(153,153,153,1);
+				align-items: center;
+			}
+			.cs_tip_1 img{
+				width:.22rem;
+				height:auto;
+				margin-right: 5px;
+			}
+			.rz_li_cbr{
+				width: 100%;
+				padding: 22px 0;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.sx1{
+				width:1px;
+				height:52px;
+				background: #D3D2D5;
+				border-radius: 100%;
+				opacity: .6;
+			}
+			.cbr_msgli{
+				flex-direction: column;
+				align-items: center;
+			}
+			.cbr_msgli .d1{
+				color: #656565;
+				font-size: 14px;
+				align-items: center;
+				width: 100%;
+				justify-content: center;
+			}
+			.cbr_msgli img{
+				width: auto;
+				height: 14px;
+				margin-right: 4px;
+			}
+			.cbr_msgli .d2{
+				color: #333;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			.rz_name1{
+				font-weight: bold;
+				font-size: 15px;
+				line-height: 16px;
+			}
+			.rz_name1 img{
+				width: 13px;
+				height: 13px;
+				border-radius: 50%;
+			}
+			
+			/* 明细 */
+			.mx_box{
+				width: 100%;
+				background: #fff;
+			}
+			.mx_box>.d1{
+				align-items: center;
+				justify-content: space-between;
+				height: .88rem;
+				padding: 0 15px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				width: 100%;
+				/* border-bottom: 3px solid #f5f6fa; */
+			}
+			.mx_off_btn{
+				width:.31rem;
+				height:.32rem;
+			}
+			
+			.mx_box>.d2{
+				width: 100%;
+				padding: 0 15px 15px;
+				height: auto;
+				max-height: 80vh;
+				overflow-y: auto;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.mx_tit{
+				width: 100%;
+				height: 50px;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.mx_t_l{
+				font-size: 15px;
+				color: #333;
+			}
+			.mx_t_r{
+				font-size: 15px;
+				color: #FA5E5E;
+			}
+			.mx_tab{
+				width: 100%;
+				background:rgba(255,255,255,1);
+				border:1px solid rgba(225,225,229,1);
+			}
+			.mx_th{
+				background: #E1E1E5;
+				width: 100%;
+				align-items: center;
+				min-height: 48px;
+			}
+			.mx_tr{
+				background: #fff;
+				width: 100%;
+				min-height: 48px;
+				align-items: center;
+			}
+			.mx_td{
+				width: 25%;
+				padding: 5px 5px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				font-size: .26rem;
+				color: #333;
+				justify-content: center;
+				align-items: center;
+			}
+			.mx_td:first-child{
+				
+				padding: 5px 10px;
+			}
 			@media screen and (max-width: 330px) {}
 		</style>
 	</head>
@@ -340,7 +488,27 @@
 			<div class="flex-con">
 
 				<form id="my_box3" class="my_box3" >
-					
+					<div class="rz_li rz_li_cbr disflex" style="border-radius: 4px 4px 0 0;">
+						<div class="disflex cbr_msgli flex1">
+							<div class="d1 disflex"><img src="image/csmsg1.png" alt="">参保人</div>
+							<div class="d2">张三</div>
+						</div>
+						<div class="sx1"></div>
+						<div class="disflex cbr_msgli flex1">
+							<div class="d1 disflex"><img src="image/csmsg2.png" alt="">参保城市</div>
+							<div class="d2">北京</div>
+						</div>
+						<div class="sx1"></div>
+						<div class="disflex cbr_msgli flex1">
+							<div class="d1 disflex"><img src="image/csmsg3.png" alt="">参保套餐</div>
+							<div class="d2">3个月</div>
+						</div>
+					</div>
+					<div class="hx_f1"></div>
+					<div class="rz_li rz_li_tip" style="border-radius: 0 0 4px 4px;">
+						<div class="cs_tip_1 disflex"><img src="image/cs_zy.png" alt="">两项业务同时参保仅收一项费用</div>
+						<div class="cs_tip_1 disflex"><img src="image/cs_lb.png" alt="">当前城市社保强制缴纳公积金可选择</div>
+					</div>
 					<div class="rz_li">
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon1.png" alt="">社保</div>
@@ -363,18 +531,91 @@
 						</div>
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name">费用小计</div>
-							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<div class="flex1 tar" style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
 							<input class="flex1" type="hidden" name="fyjx" id="" value="588.58" readonly=""/>
+							<div class="mx_btn disflex" @click="showPicker1=true">明细	<i class=" iconfont iconnext"></i></div>
 						</div>
 						
 						
 					</div>
 					
+					<van-popup v-model="showPicker1" position="bottom">
+						<div class="mx_box">
+							<div class="d1 disflex">
+								<div></div>
+								<img  @click="showPicker1=false" class="mx_off_btn" src="image/mx_off.png" alt="">
+							</div>
+							<div class="d2">
+								<div class="mx_tit disflex">
+									<div class="mx_t_l">社保费用</div>
+									<div class="mx_t_r">￥500.00</div>
+								</div>
+							
+								<div class="mx_tab">
+									<div class="mx_th disflex">
+										<div class="mx_td disflex">项目</div>
+										<div class="mx_td disflex">基数</div>
+										<div class="mx_td disflex">个人</div>
+										<div class="mx_td disflex">公司</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">养老保险</div>
+										<div class="mx_td disflex">3615</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">医疗保险</div>
+										<div class="mx_td disflex">5360</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">失业保险</div>
+										<div class="mx_td disflex">3615</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">工伤保险</div>
+										<div class="mx_td disflex">4713</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">滞纳金</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">调整项</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">大病医疗保险</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">总计</div>
+										<div class="mx_td disflex"></div>
+										<div class="mx_td disflex">406.63</div>
+										<div class="mx_td disflex">406.63</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</van-popup>
 					
 					<div class="hx_f1"></div>
 					<div class="rz_li">
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon2.png" alt="">公积金</div>
+							<!-- <div class="flex0 rz_name rz_name1 disflex aic"><img class="csicon" src="image/selectpay.png" alt="">缴纳</div> -->
 						</div>
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name">参保月份</div>
@@ -390,16 +631,49 @@
 						</div>
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name">费用小计</div>
-							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<div class="flex1 tar" style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
 							<input class="flex1" type="hidden" name="fyjx_gjj" id="" value="588.58" readonly=""/>
+							<div class="mx_btn disflex" @click="showPicker2=true">明细	<i class=" iconfont iconnext"></i></div>
+							
 						</div>
 						
 						
 					</div>
+					<van-popup v-model="showPicker2" position="bottom">
+						<div class="mx_box">
+							<div class="d1 disflex">
+								<div></div>
+								<img  @click="showPicker2=false" class="mx_off_btn" src="image/mx_off.png" alt="">
+							</div>
+							<div class="d2">
+								<div class="mx_tit disflex">
+									<div class="mx_t_l">公积金费用</div>
+									<div class="mx_t_r">￥500.00</div>
+								</div>
+							
+								<div class="mx_tab">
+									<div class="mx_th disflex">
+										<div class="mx_td disflex">项目</div>
+										<div class="mx_td disflex">基数</div>
+										<div class="mx_td disflex">个人</div>
+										<div class="mx_td disflex">公司</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">公积金</div>
+										<div class="mx_td disflex">3615</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</van-popup>
 					<div class="hx_f1"></div>
 					<div class="rz_li">
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name disflex aic"><img class="csicon" src="image/csicon3.png" alt="">个人所得税</div>
+							<!-- <div class="flex0 rz_name rz_name1 disflex aic"><img class="csicon" src="image/selectpay.png" alt="">缴纳</div> -->
 						</div>
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name">参保月份</div>
@@ -419,12 +693,85 @@
 						</div>
 						<div class="rz_li1 disflex">
 							<div class="flex0 rz_name">费用小计</div>
-							<div style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
+							<div class="flex1 tar" style="color: #F64A4A;font-size: 15px;"><span style="font-size: 10px;">￥</span>588.58</div>
 							<input class="flex1" type="hidden" name="fyjx_gr" id="" value="588.58" readonly=""/>
+							<div class="mx_btn disflex" @click="showPicker3=true">明细	<i class=" iconfont iconnext"></i></div>
+
 						</div>
 						
 						
 					</div>
+					<van-popup v-model="showPicker3" position="bottom">
+						<div class="mx_box">
+							<div class="d1 disflex">
+								<div></div>
+								<img  @click="showPicker3=false" class="mx_off_btn" src="image/mx_off.png" alt="">
+							</div>
+							<div class="d2">
+								<div class="mx_tit disflex">
+									<div class="mx_t_l">个人所得税费用</div>
+									<div class="mx_t_r">￥500.00</div>
+								</div>
+							
+								<div class="mx_tab">
+									<div class="mx_th disflex">
+										<div class="mx_td disflex">项目</div>
+										<div class="mx_td disflex">基数</div>
+										<div class="mx_td disflex">个人</div>
+										<div class="mx_td disflex">公司</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">养老保险</div>
+										<div class="mx_td disflex">3615</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">医疗保险</div>
+										<div class="mx_td disflex">5360</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">失业保险</div>
+										<div class="mx_td disflex">3615</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">工伤保险</div>
+										<div class="mx_td disflex">4713</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">滞纳金</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">调整项</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">-</div>
+										<div class="mx_td disflex">-</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">大病医疗保险</div>
+										<div class="mx_td disflex">0</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+										<div class="mx_td disflex">209.20（8%）</div>
+									</div>
+									<div class="mx_tr  disflex">
+										<div class="mx_td disflex">总计</div>
+										<div class="mx_td disflex"></div>
+										<div class="mx_td disflex">406.63</div>
+										<div class="mx_td disflex">406.63</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</van-popup>
 					
 					<div class="disflex b_box">
 						<div class="logout_btn1 disflex" style="align-items: baseline ;">共 <span style="color: #F64A4A;font-size: 12px;">￥</span><span style="color: #F64A4A;font-size: 19px;">588.58</span> 元</div>
@@ -455,7 +802,10 @@
 				data: {
 					sfz1:'',
 					sfz2:'',
-					imgs:[]
+					imgs:[],
+					showPicker1:false,
+					showPicker2:false,
+					showPicker3:false,
 				},
 				created: function() {},
 				methods: {

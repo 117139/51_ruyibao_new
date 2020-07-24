@@ -127,15 +127,19 @@
 					<div class="hk_bg">
 						<div class="hk_li disflex">
 							<div>账户名</div>
-							<input type="text" placeholder="请输入" v-model="name">
+							<!-- <input type="text" placeholder="请输入" v-model="name"> -->
+							<div style="font-size: 14px;color: #999;">北京顶盛人力资源公司</div>
 						</div>
 						<div class="hk_li disflex">
 							<div>开户行</div>
-							<input type="text" placeholder="请输入" v-model="yh_name">
+							<!-- <input type="text" placeholder="请输入" v-model="yh_name"> -->
+							<div style="font-size: 14px;color: #999;">中国民生银行支行</div>
 						</div>
 						<div class="hk_li disflex">
 							<div>银行账号</div>
-							<input type="text" placeholder="请输入" v-model="yh_card">
+							<!-- <input type="text" placeholder="请输入" v-model="yh_card"> -->
+							
+							<div style="font-size: 14px;color: #999;">625215121554</div>
 						</div>
 						<div class="hx_1"></div>
 						<div class="tp_tip">特别提醒</div>
@@ -180,18 +184,6 @@
 			});
 			
 			function gopay(){
-				if(!vm.name){
-					layer.msg('请输入账户名')
-					return
-				}
-				if(!vm.yh_name){
-					layer.msg('请输入开户行')
-					return
-				}
-				if(!vm.yh_card){
-					layer.msg('请输入银行账号')
-					return
-				}
 				top.window.location='order_pay3.html'
 			}
 			
