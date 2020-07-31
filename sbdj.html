@@ -280,6 +280,11 @@
 				color: #fff;
 				background:rgba(52,151,250,1);
 			}
+			.banzhu_btn{
+				width: 16px;
+				height: 16px;
+				margin-left: 4px;
+			}
 			@media screen and (max-width: 330px) {}
 		</style>
 	</head>
@@ -298,7 +303,9 @@
 						</a>
 						
 						<div class="rz_li1 disflex">
-							<div class="flex0 rz_name">是否为首次缴纳社保</div>
+							<div class="flex0 rz_name disflex aic" onclick="tk_banzhu()">是否为首次缴纳社保
+								<svg t="1595921494359" class="icon banzhu_btn" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2360"><path d="M512 0C229.729103 0 0 229.729103 0 512S229.729103 1024 512 1024 1024 794.270897 1024 512 794.270897 0 512 0z m0 953.37931C268.676414 953.37931 70.62069 755.323586 70.62069 512S268.676414 70.62069 512 70.62069 953.37931 268.676414 953.37931 512 755.323586 953.37931 512 953.37931zM459.034483 706.206897h70.620689v70.620689h-70.620689v-70.620689z m52.894896-459.034483c-63.099586 0-108.438069 27.61269-134.426482 74.575448-17.302069 31.249655-24.046345 66.242207-24.399449 100.422621l73.304276 0.812138c0.706207-59.886345 23.234207-100.634483 85.521655-100.634483 54.519172 0 85.556966 27.930483 85.556966 75.175724 0 23.022345-8.368552 37.217103-35.027862 63.558621l-14.653793 14.300689c-49.611034 48.728276-72.386207 90.429793-72.386207 160.203035h73.268965c0-45.691586 13.312-69.985103 49.822897-105.931035 2.295172-2.259862 12.146759-11.864276 14.795034-14.336C653.029517 476.19531 670.896552 445.757793 670.896552 397.594483 670.790621 306.493793 605.042759 247.172414 511.929379 247.172414z" p-id="2361"></path></svg>
+							</div>
 							
 							<div class="cb_fir disflex">
 								<div class="cb1_1 disflex" :class="cb1_type==1?'cur':''" @click="cb1_type=1">是</div>
@@ -349,7 +356,7 @@
 						<!-- 缴费基数 -->
 						<div class="rz_li1 disflex" >
 							<div class="flex0 rz_name">缴费基数</div>
-							<input class="jf_int" type="number" name="jfjs" placeholder="请输入" >
+							<input class="jf_int" type="number" name="jfjs" placeholder="请输入3613~5360" v-model="jfjs">
 							<div class="zd_btn disflex" :class="zd_type==1?'cur':''" @click="zd_fuc">
 								<div class="d1"></div>
 								<div>最低</div>
@@ -359,10 +366,24 @@
 						</div>
 						<!-- /购买时长 -->
 						<div class="rz_li1 disflex" @click="showPicker3 = true">
-							<div class="flex0 rz_name">购买时长</div>
+							<!-- <div class="flex0 rz_name">购买时长</div> -->
+							<div class="flex0 rz_name">缴费月份</div>
 							<input class="flex1" type="text" name="hk" placeholder="请选择" :value="value3" readonly="">
+							<!-- <input class="flex1" type="text" name="hk" placeholder="请选择" :value="starttime1" readonly=""> -->
 							<i class=" iconfont iconnext"></i>
 						</div>
+						
+						<!-- <van-popup v-model="showPicker3" position="bottom">
+							<van-datetime-picker
+							  v-model="currentDate"
+							  type="year-month"
+							  title="选择年月"
+							  :min-date="minDate_now"
+							  :max-date="maxDate"
+								:formatter="formatter"
+								@confirm='confirm3'
+							/>
+						</van-popup> -->
 						<van-popup v-model="showPicker3" position="bottom">
 							<van-picker show-toolbar :columns="columns3" @cancel="showPicker3 = false" @confirm="onConfirm3" />
 						</van-popup>
@@ -415,6 +436,7 @@
 					xzcbr:'',
 					cb1_type:0,
 					showPicker1: false, //户口
+					jfjs:'',
 					columns1: [{
 							values: [
 								'本地城市',
@@ -452,6 +474,9 @@
 						}
 					
 					],
+					// minDate_now: new Date(),
+					// starttime:new Date(),
+					// starttime1: gettime(new Date())+'至'+gettime_end(new Date()),
 					value3: '1年',
 					showPicker_cb: false, 
 					minDate: new Date(1978, 10, 1),
@@ -476,6 +501,13 @@
 						this.currentDate1 = gettime(e);
 						this.showPicker_cb = false;
 					},
+					// confirm3(e){
+					// 	console.log(e)
+					// 	this.starttime = e;
+					// 	console.log(e)
+					// 	this.starttime1 = gettime(e)+'至'+gettime_end(e);
+					// 	this.showPicker3 = false;
+					// },
 					onConfirm1(value) { //户口类型
 						console.log(value)
 						this.value1 = value[0];
@@ -493,8 +525,29 @@
 					},
 				}
 			});
+			function tk_banzhu(){
+				// layer.msg('是否第一次在该参保城市缴纳社保？')
+				var lock = false; //默认未锁定
+				var myconfirm = layer.confirm('是否第一次在该参保城市缴纳社保？', {
+					title:'提示',
+					btn: ['是','否'] //按钮
+				}, function(){
+						if(!lock) {
+								lock = true; // 锁定
+								
+								//是
+								vm.cb1_type=1
+								lock = false; // 锁定
+						}
+						layer.close(myconfirm);
+				}, function(){
+					vm.cb1_type=0
+						layer.close(myconfirm);
+				});
+			}
 			function zd_fuc(){
 				vm.zd_type=!vm.zd_type
+				vm.jfjs=3613
 			}
 			function sub(){
 				var datas=$('.my_box3').serializeObject()
@@ -520,6 +573,31 @@
 			    }
 			    var currentdate = year + '年' + month + '月'
 			    return currentdate
+			}
+			// gettime_end
+			function gettime_end(value) {
+			    var seperator1 = "/";
+			    value = new Date(value)
+			
+			    var year = value.getFullYear();
+			    console.log(year)
+			    var month = value.getMonth() + 1;
+			    var strDate = value.getDate();
+					if(month>=6){
+						year++
+						var currentdate = year + '年06月'
+						return currentdate
+					}else{
+						// if (month >= 1 && month <= 9) {
+						    month = "0" + month;
+						// }
+						// if (strDate >= 0 && strDate <= 9) {
+						//     strDate = "0" + strDate;
+						// }
+						var currentdate = year + '年' + month + '月'
+						return currentdate
+					}
+			    
 			}
 			function myback() {
 				history.go(-1)
